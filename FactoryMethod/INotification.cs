@@ -1,4 +1,4 @@
 public interface INotification
 {
-    public abstract void Send();
+    public void Send();
 }
