@@ -3,16 +3,17 @@
     static void Main()
     {
         NotificationCreator ? creator = null;
-        NewNotification(ref creator);
+        NewNotification(out creator);
         if(creator != null) {
             INotification notification = creator.CreatNotification();
             notification.Send();
         }
     }
 
-    static void NewNotification(ref NotificationCreator ? creator)
+    static void NewNotification(out NotificationCreator ? creator)
     {    
         bool exit = false;
+        creator = null;
         while(!exit)
         {
             exit = true;
