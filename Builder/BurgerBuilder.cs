@@ -22,11 +22,11 @@ public class CustomBurgerBuilder : IBurgerBuilder
     }
     public void AddSauce(string type)
     {
-        _burger.AddIngredient(type);
+        _burger.AddIngredient($"Соус: {type}");
     }
     public void AddTopping(string topping)
     {
-        _burger.AddIngredient(topping);
+        _burger.AddIngredient($"Топпинг: {topping}");
     }
 
     public Burger GetBurger()

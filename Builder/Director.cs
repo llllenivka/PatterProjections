@@ -7,8 +7,25 @@ class Director
         _burgerBuilder = burgerBuilder;
     }
 
-    public void MakeClassic()
+    public void MakeBurger(string bun, string patty, string sauce)
     {
-        _burgerBuilder.AddBun("белая");
+        _burgerBuilder.AddBun(bun);
+        _burgerBuilder.AddPatty(patty);
+        _burgerBuilder.AddSauce(sauce);
+    }
+
+    public void MakeClassicBurger()
+    {
+        MakeBurger("белая", "говяжья", "кетчуп");
+    }
+
+    public void MakeVeganBurger()
+    {
+        MakeBurger("цельнозерновая", "растительная", "барбекью");
+    }
+
+    public void AddTopping(string topping)
+    {
+        _burgerBuilder.AddTopping(topping);
     }
 }
