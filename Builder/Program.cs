@@ -14,20 +14,16 @@
 
         while(true)
         {
-            Console.WriteLine("Добавить топпинг:");
-            Console.WriteLine("1 - да");
-            Console.WriteLine("2 - нет");
+            Console.WriteLine("Добавить топпинг (да/нет):");
 
             string ? input = Console.ReadLine();
-            if(string.IsNullOrEmpty(input) || (input != "1" && input != "2"))
+            if(string.IsNullOrEmpty(input) || (input != "да" && input != "нет"))
             {
+                Console.WriteLine("Некорректный ввод. Попробуйте еще раз\n");
                 continue;
             }
-            else if(input == "1")
-            {
-                director = ChooseTopping(director);
-            }
 
+            if(input == "да") director = ChooseTopping(director);
             break;
         }
 
@@ -52,44 +48,63 @@
                 director.MakeVeganBurger();
                 break;
             case "3":
-                // director.MakeSBurger();
+                var ingredients = ChooseIngredients();
+                director.MakeBurger(ingredients.Item1, ingredients.Item2, ingredients.Item3);
                 break;
             default:
-                Console.WriteLine("Некорректный ввод. Попробуйте еще раз");
+                Console.WriteLine("Некорректный ввод. Попробуйте еще раз\n");
                 director = ChooseBurger(director);
                 break;
         }
 
         return director;
-    }пше 
+    }
+
+    public static (string, string, string) ChooseIngredients()
+    {
+        string ? bun, patty, sauce;
+        while(true)
+        {
+            Console.WriteLine("Выберите булочку (белая, цельнозерновая, без глютена): ");
+            bun = Console.ReadLine();
+            if(bun == "белая"|| bun == "цельнозерновая" || bun == "без глютена") break;
+            Console.WriteLine("Такой булочки нет. Поробуйте еще раз\n");
+        }
+
+        while(true)
+        {
+            Console.WriteLine("Выберите котлету (говяжья, куриная, растительная): ");
+            patty = Console.ReadLine();
+            if(patty == "говяжья"|| patty == "куриная" || patty == "растительная") break;
+            Console.WriteLine("Такой котлеты нет. Поробуйте еще раз\n");
+        }
+
+        while(true)
+        {
+            Console.WriteLine("Выберите соус (майонез, кетчуп, барбекю): ");
+            sauce = Console.ReadLine();
+            if(sauce == "майонез"|| sauce == "кетчуп" || sauce == "барбекю") break;
+            Console.WriteLine("Такого соуса нет. Поробуйте еще раз\n");
+        }
+        return (bun, patty, sauce);
+
+    }
 
     public static Director ChooseTopping(Director director)
     {
-        Console.WriteLine("Выбирите топпинг:");
-        Console.WriteLine("1 - сыр");
-        Console.WriteLine("2 - лук");
-        Console.WriteLine("3 - огурцы");
+        Console.WriteLine("Выбирите топпинг (сыр, лук, огурцы): ");
 
         string ? input = Console.ReadLine();
-        if(string.IsNullOrEmpty(input) || (input != "1" && input != "2" && input != "3"))
+        if(string.IsNullOrEmpty(input) || (input != "сыр" && input != "лук" && input != "огурцы"))
         {
-            Console.WriteLine("Некорруктный ввод. Попробуйте еще раз");
+            Console.WriteLine("Некорректный ввод. Попробуйте еще раз\n");
             return ChooseTopping(director);
         } 
         
-        switch(input)
-        {
-            case "1":
-                director.AddTopping("сыр");
-                break;
-            case "2":
-                director.AddTopping("лук");
-                break;
-            case "3":
-                director.AddTopping("огурцы");
-                break;
-        }
+        director.AddTopping(input);
 
         return director;
     }
+
+
 }

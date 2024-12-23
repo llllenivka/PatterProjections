@@ -8,25 +8,24 @@
     "net8.0": []
   },
   "packageFolders": {
-    "/Users/adelina/.nuget/packages/": {}
+    "/Users/lenwooda/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/adelina/Desktop/my_cringe/PatterProjections/FactoryMethod/FactoryMethod.csproj",
+      "projectUniqueName": "/Users/lenwooda/Desktop/my_cringe/PatterProjections/FactoryMethod/FactoryMethod.csproj",
       "projectName": "FactoryMethod",
-      "projectPath": "/Users/adelina/Desktop/my_cringe/PatterProjections/FactoryMethod/FactoryMethod.csproj",
-      "packagesPath": "/Users/adelina/.nuget/packages/",
-      "outputPath": "/Users/adelina/Desktop/my_cringe/PatterProjections/FactoryMethod/obj/",
+      "projectPath": "/Users/lenwooda/Desktop/my_cringe/PatterProjections/FactoryMethod/FactoryMethod.csproj",
+      "packagesPath": "/Users/lenwooda/.nuget/packages/",
+      "outputPath": "/Users/lenwooda/Desktop/my_cringe/PatterProjections/FactoryMethod/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/adelina/.nuget/NuGet/NuGet.Config"
+        "/Users/lenwooda/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
       ],
       "sources": {
-        "/usr/local/share/dotnet/library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -39,11 +38,6 @@
         "warnAsError": [
           "NU1605"
         ]
-      },
-      "restoreAuditProperties": {
-        "enableAudit": "true",
-        "auditLevel": "low",
-        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -65,7 +59,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.403/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.100-preview.3.23178.7/RuntimeIdentifierGraph.json"
       }
     }
   }
