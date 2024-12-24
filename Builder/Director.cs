@@ -21,7 +21,7 @@ class Director
 
     public void MakeVeganBurger()
     {
-        MakeBurger("цельнозерновая", "растительная", "барбекью");
+        MakeBurger("цельнозерновая", "растительная", "барбекю");
     }
 
     public void AddTopping(string topping)

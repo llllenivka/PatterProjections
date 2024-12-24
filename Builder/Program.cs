@@ -23,8 +23,9 @@
                 continue;
             }
 
-            if(input == "да") director = ChooseTopping(director);
-            break;
+            if (input == "нет") break;
+
+            director = ChooseTopping(director);
         }
 
         var burger = burgerBuilder.GetBurger();
@@ -33,28 +34,30 @@
 
     public static Director ChooseBurger(Director director)
     {
-        Console.WriteLine("Выбирите бургер:");
-        Console.WriteLine("1 - Классический бургер");
-        Console.WriteLine("2 - Вегансикй бургер");
-        Console.WriteLine("3 - Создать бургер вручную");
-
-        string ? input = Console.ReadLine();
-        switch (input)
+        while(true)
         {
-            case "1":
-                director.MakeClassicBurger();
-                break;
-            case "2":
-                director.MakeVeganBurger();
-                break;
-            case "3":
-                var ingredients = ChooseIngredients();
-                director.MakeBurger(ingredients.Item1, ingredients.Item2, ingredients.Item3);
-                break;
-            default:
-                Console.WriteLine("Некорректный ввод. Попробуйте еще раз\n");
-                director = ChooseBurger(director);
-                break;
+            Console.WriteLine("Выбирите бургер:");
+            Console.WriteLine("1 - Классический бургер");
+            Console.WriteLine("2 - Вегансикй бургер");
+            Console.WriteLine("3 - Создать бургер вручную");
+
+            string ? input = Console.ReadLine();
+            switch (input)
+            {
+                case "1":
+                    director.MakeClassicBurger();
+                    return director;
+                case "2":
+                    director.MakeVeganBurger();
+                    return director;
+                case "3":
+                    var ingredients = ChooseIngredients();
+                    director.MakeBurger(ingredients.Item1, ingredients.Item2, ingredients.Item3);
+                    return director;
+                default:
+                    Console.WriteLine("Некорректный ввод. Попробуйте еще раз\n");
+                    break;
+            }
         }
 
         return director;
@@ -92,17 +95,21 @@
 
     public static Director ChooseTopping(Director director)
     {
-        Console.WriteLine("Выбирите топпинг (сыр, лук, огурцы): ");
-
-        string ? input = Console.ReadLine();
-        if(string.IsNullOrEmpty(input) || (input != "сыр" && input != "лук" && input != "огурцы"))
+        while(true)
         {
-            Console.WriteLine("Некорректный ввод. Попробуйте еще раз\n");
-            return ChooseTopping(director);
-        } 
-        
-        director.AddTopping(input);
+            Console.WriteLine("Выбирите топпинг (сыр, лук, огурцы): ");
 
+            string ? input = Console.ReadLine();
+            if(string.IsNullOrEmpty(input) || (input != "сыр" && input != "лук" && input != "огурцы"))
+            {
+                Console.WriteLine("Некорректный ввод. Попробуйте еще раз\n");
+            } 
+            else 
+            {
+                director.AddTopping(input);
+                break;
+            }
+        }
         return director;
     }
 
